@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>睡眠スケジュール計算ツール | Sleep Window Calculator</title>
+  <meta name="description" content="不眠の認知行動療法の考え方にもとづいて、参考となる入床・起床時刻を表示します。">
+  <link rel="stylesheet" href="widget.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>睡眠スケジュール計算ツール</h1>
+    <p class="subtitle">不眠の認知行動療法の臥床時間制限法の考え方にもとづく<br>参考スケジュールを表示します</p>
+  </div>
+
+  <!-- Input card -->
+  <div class="card">
+
+    <!-- STEP 1 -->
+    <div class="step-badge">
+      <span class="num">1</span>
+      <span class="label">先週の平均睡眠を入力</span>
+    </div>
+
+    <div class="form-group">
+      <label>
+        平均睡眠時間
+        <span class="hint">実際に眠れていた時間</span>
+      </label>
+      <div class="time-pick">
+        <select id="tst-h" class="h-sel" aria-label="睡眠時間（時間）"></select>
+        <select id="tst-m" class="m-sel" aria-label="睡眠時間（分）"></select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>
+        平均臥床時間
+        <span class="hint">横になっていた合計時間</span>
+      </label>
+      <div class="time-pick">
+        <select id="tib-h" class="h-sel" aria-label="臥床時間（時間）"></select>
+        <select id="tib-m" class="m-sel" aria-label="臥床時間（分）"></select>
+      </div>
+    </div>
+
+    <hr class="card-divider">
+
+    <!-- STEP 2 -->
+    <div class="step-badge">
+      <span class="num">2</span>
+      <span class="label">目標起床時刻を入力</span>
+    </div>
+
+    <div class="form-group">
+      <label>
+        毎朝の起床時刻
+        <span class="hint">起きる時間を毎日一定にするのが理想</span>
+      </label>
+      <div class="time-pick">
+        <input type="time" id="wake-time" aria-label="起床時刻">
+      </div>
+    </div>
+
+    <hr class="card-divider">
+
+    <!-- Contraindication warning -->
+    <div class="contra-box">
+      <div class="contra-title">⚠️ ご利用前にご確認ください</div>
+      <p class="contra-disclaimer">この計算結果は一般的な参考情報です。医師による診断・治療の代替ではありません。</p>
+      <p class="contra-lead">以下に該当する方は、このツールの結果を自己判断で実践せず、<strong>必ず医師・専門家にご相談ください。</strong></p>
+      <ul class="contra-list">
+        <li>双極性障害（躁うつ病）の診断を受けている方</li>
+        <li>てんかんの診断を受けている方</li>
+        <li>睡眠時無呼吸症候群の治療中の方</li>
+        <li>運転・機械操作など、眠気が危険につながる職業の方</li>
+        <li>高齢で転倒リスクが高い方</li>
+      </ul>
+    </div>
+
+    <button class="btn-calc" id="calc-btn">
+      参考スケジュールを表示する
+    </button>
+
+  </div><!-- /card -->
+
+  <!-- Results (hidden until calculated) -->
+  <div class="card hidden" id="results"></div>
+
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    <strong>免責事項・ご注意</strong><br>
+    このツールは、不眠の認知行動療法の一般的な考え方にもとづく<strong>情報提供を目的としたもの</strong>であり、
+    医療診断・治療行為・医療的アドバイスの提供を目的としたものではありません。<br>
+    睡眠の問題でお困りの場合は、医師・睡眠専門医・臨床心理士など医療の専門家にご相談ください。<br>
+    本ツールの結果を治療判断の根拠にしないでください。
+    すべての計算はお使いのブラウザ内のみで行われ、入力データが外部に送信・保存されることはありません。
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    監修：古川由己（精神科医・不眠症研究者）｜
+    <a href="https://yukifurukawa.jp/" target="_blank" rel="noopener">yukifurukawa.jp</a><br>
+    不眠の認知行動療法について詳しくは
+    <a href="https://yukifurukawa.jp/cbt-i-for-all/" target="_blank" rel="noopener">ブログ記事</a>・
+    <a href="https://amzn.to/3MVZJjj" target="_blank" rel="noopener">書籍</a>
+  </div>
+
+</div><!-- /container -->
+
+<script src="widget.js"></script>
+</body>
+</html>
